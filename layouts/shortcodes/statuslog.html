@@ -1,10 +1,8 @@
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const statusesContainer = document.getElementById('statusesContainer');
-    const account = "{{- $.Site.Params.status_count }}"; 
-    const count = "{{- $.Site.Params.status_count }}"; 
+    document.addEventListener('DOMContentLoaded', function () {
+    const statusesContainer = document.getElementById('omg_statuslog');
 
-    fetch(`https://api.omg.lol/address/${account}/statuses/`) 
+    fetch('https://api.omg.lol/address/{{- $.Site.Params.status_account }}/statuses/')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -13,16 +11,14 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(data => {
             if (data && data.response && data.response.statuses) {
-                const statuses = data.response.statuses.slice(0, count); 
+                const statuses = data.response.statuses.slice(0, {{- $.Site.Params.status_count }});
                 statuses.forEach(status => {
                     const statusElement = document.createElement('div');
+                    statusElement.classList.add('status');
                     statusElement.innerHTML = `
-                        <div>ID: ${status.id}</div>
-                        <div>Address: ${status.address}</div>
-                        <div>Created: ${new Date(status.created * 1000)}</div>
-                        <div>Emoji: ${status.emoji}</div>
-                        <div>Content: ${status.content}</div>
-                        <br>
+                        <div class="status_emoji">${status.emoji}</div>
+                        <div class="status_content">${status.content}</div>
+                        <div class="status_date">${new Date(status.created * 1000).toLocaleString('en-GB', {day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric'})}</div>
                     `;
                     statusesContainer.appendChild(statusElement);
                 });
@@ -34,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('There was a problem with the fetch operation:', error);
         });
 });
-
 </script>
 
-<div id="statusesContainer"></div>
+<div id="omg_statuslog"></div>
