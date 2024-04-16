@@ -1,0 +1,40 @@
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const statusesContainer = document.getElementById('statusesContainer');
+    const account = "{{- $.Site.Params.status_count }}"; 
+    const count = "{{- $.Site.Params.status_count }}"; 
+
+    fetch(`https://api.omg.lol/address/${account}/statuses/`) 
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data && data.response && data.response.statuses) {
+                const statuses = data.response.statuses.slice(0, count); 
+                statuses.forEach(status => {
+                    const statusElement = document.createElement('div');
+                    statusElement.innerHTML = `
+                        <div>ID: ${status.id}</div>
+                        <div>Address: ${status.address}</div>
+                        <div>Created: ${new Date(status.created * 1000)}</div>
+                        <div>Emoji: ${status.emoji}</div>
+                        <div>Content: ${status.content}</div>
+                        <br>
+                    `;
+                    statusesContainer.appendChild(statusElement);
+                });
+            } else {
+                throw new Error('Malformed response data');
+            }
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+});
+
+</script>
+
+<div id="statusesContainer"></div>

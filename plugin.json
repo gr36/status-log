@@ -1,0 +1,18 @@
+{
+    "version": "1.0.0",
+    "title": "Show Reply Count",
+    "description": "Add the reply count to your micro.blog posts.",
+    "fields": [
+        {
+            "field": "params.status_account",
+            "label": "Your omg.lol account name",
+            "placeholder": "adam"
+          },
+        {
+          "field": "params.status_count",
+          "label": "How many statuses to show",
+          "placeholder": "10"
+        }
+    ]
+}
+  
