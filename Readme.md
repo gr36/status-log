@@ -1,5 +1,5 @@
 # Statuslog Micro.blog plugin
-A plugin for micro.blog that creates a shortcode to use on your blog.
+Display your omg.lol Statuslog on a micro.blog page.
 
 ![](https://github.com/gr36/status-log/raw/main/docs/nowpage.png)
 
@@ -15,12 +15,12 @@ Simply add ```{{< statuslog >}}``` to your page wherever you want the updates to
 
 ### Configuration
 
-You *must* change the account name in the plugin configuration to your own, otherwise Adams statues will apear on your page! Whislt you are there you cna choose how many statuses you want to appear on the page.
+You *must* change the account name in the plugin configuration to your own, otherwise Adams statues will appear on your page! Whilst you are there you can choose how many statuses you want to appear on the page.
 
 ![](https://github.com/gr36/status-log/raw/main/docs/config.png)
 
 ## Styling
-There is absilutly no styling applied to the div elements placed on the page. This is to give you the most choice possible for how it looks. In my example screenshot above I have some very simple flexbox styling as shown below.
+There is absolutely no styling applied to the div elements placed on the page. This is to give you the most choice possible for how it looks. In my example screenshot above I have some very simple flexbox styling as shown below.
 
 ```
 #omg_statuslog {
@@ -60,7 +60,7 @@ This plugin uses on page javascript so there are a few things to bear in mind.
 - if a browser is setup to blog javascript then nothing will appear on the page.
 
 ## Credits
-Thanks to Adam for creating such a great service in omg.lol. The statuslog is just a small part of the service, check it out [here](https://home.omg.lol)
+Thanks to Adam for creating such a great service in omg.lol. The statuslog is just a small part of the service, check it out [here](https://home.omg.lol).
 
 ## Support Me
 If you found this plugin useful, please consider [buying me a coffee](https://www.buymeacoffee.com/gregmorris)
