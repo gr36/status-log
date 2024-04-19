@@ -1,7 +1,7 @@
 {
-    "version": "1.0.0",
-    "title": "Show Reply Count",
-    "description": "Add the reply count to your micro.blog posts.",
+    "version": "1.0.1",
+    "title": "OMG.LOL Status Log",
+    "description": "Add a customisable list of your statuslog to any page",
     "fields": [
         {
             "field": "params.status_account",
