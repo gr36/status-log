@@ -3,7 +3,7 @@
     {{ $data := getJSON $url }}
     {{ if $data.response.statuses }}
         <div id="omg_statuslog">
-            {{ range $data.response.statuses }}
+            {{ range first $.Site.Params.status_count $data.response.statuses }}
                 <div class="status">
                     <div class="status_emoji">{{ .emoji }}</div>
                     <div class="status_content">{{ .content }}</div>

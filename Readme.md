@@ -7,6 +7,7 @@ Display your omg.lol Statuslog on a micro.blog page.
 - 1.0 Initial release
 - 1.0.1 Inprove styling and scripting
 - 1.1 Remove all on page scriting and instead use Hugo Getdata
+- 1.1.1 Add in option to limit feed to number of statuses displayed 
 
 ## Set Up
 Instal the plugin from Github by clicking design, edit theme, and then add new plugin.
