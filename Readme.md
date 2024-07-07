@@ -60,7 +60,7 @@ There is absolutely no styling applied to the div elements placed on the page. T
 ```
 
 ## Considerations
-This plugin uses on page javascript so there are a few things to bear in mind.
+~~ This plugin uses on page javascript so there are a few things to bear in mind.~~ 
 - ~~it takes a few seconds to fetch the data from the API and display this on the page~~ No longer the case
 - ~~if a browser is setup to blog javascript then nothing will appear on the page.~~ No longer the case
 
