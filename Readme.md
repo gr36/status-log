@@ -4,9 +4,9 @@ Display your omg.lol Statuslog on a micro.blog page.
 ![](https://github.com/gr36/status-log/raw/main/docs/nowpage.png)
 
 ## Changelog
-1.0 Initial release
-1.0.1 Inprove styling and scripting
-1.1 Remove all on page scriting and instaed use Hugo Getdata
+- 1.0 Initial release
+- 1.0.1 Inprove styling and scripting
+- 1.1 Remove all on page scriting and instaed use Hugo Getdata
 
 ## Set Up
 Instal the plugin from Github by clicking design, edit theme, and then add new plugin.
