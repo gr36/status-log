@@ -1,35 +1,17 @@
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-    const statusesContainer = document.getElementById('omg_statuslog');
-
-    fetch('https://api.omg.lol/address/{{- $.Site.Params.status_account }}/statuses/')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data && data.response && data.response.statuses) {
-                const statuses = data.response.statuses.slice(0, {{- $.Site.Params.status_count }});
-                statuses.forEach(status => {
-                    const statusElement = document.createElement('div');
-                    statusElement.classList.add('status');
-                    statusElement.innerHTML = `
-                        <div class="status_emoji">${status.emoji}</div>
-                        <div class="status_content">${status.content}</div>
-                        <div class="status_date">${new Date(status.created * 1000).toLocaleString('en-GB', {day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric'})}</div>
-                    `;
-                    statusesContainer.appendChild(statusElement);
-                });
-            } else {
-                throw new Error('Malformed response data');
-            }
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-        });
-});
-</script>
-
-<div id="omg_statuslog"></div>
+{{ $account := .Site.Params.status_account }}
+    {{ $url := printf "https://api.omg.lol/address/%s/statuses/" $account }}
+    {{ $data := getJSON $url }}
+    {{ if $data.response.statuses }}
+        <div id="omg_statuslog">
+            {{ range $data.response.statuses }}
+                <div class="status">
+                    <div class="status_emoji">{{ .emoji }}</div>
+                    <div class="status_content">{{ .content }}</div>
+                    {{ $created := .created | int }}
+                    <div class="status_date">{{ $created | dateFormat "02 January 2006" }}</div>
+                </div>
+            {{ end }}
+        </div>
+    {{ else }}
+        <p>No statuses available.</p>
+    {{ end }}
