@@ -6,7 +6,7 @@
             {{ range first $.Site.Params.status_count $data.response.statuses }}
                 <div class="status">
                     <div class="status_emoji">{{ .emoji }}</div>
-                    <div class="status_content">{{ .content }}</div>
+                    <div class="status_content">{{ .rendered_markdown }}</div>
                     {{ $created := .created | int }}
                     <div class="status_date">{{ $created | dateFormat "02 January 2006" }}</div>
                 </div>
